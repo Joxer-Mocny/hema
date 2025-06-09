@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEMA Turnaje</title>
+  <link rel="stylesheet" href="style.css" />
+<style>
+  body {
+    background-image: url("login.png")
+  }
+</style>
+</head>
+<body>
+
+
+  <div id="login-section">
+    <label for="userSelect">Vyber alebo zadaj meno:</label><br />
+
+    <select id="userSelect">
+      <option value="">-- vyber meno --</option>
+    </select>
+
+    <p>alebo</p>
+
+    <input type="text" id="manualName" placeholder="Zadaj svoje meno" />
+    <button id="confirmNameBtn"> Pokračovať</button>
+  </div>
+
+  <div id="greeting"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
