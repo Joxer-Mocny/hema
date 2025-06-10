@@ -1,18 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config(); // Loads environment variables from .env
+require('dotenv').config();
 
 const peopleRoutes = require('./routes/people');
+const registrationRoutes = require('./routes/registration'); 
+const eventRoutes = require('./routes/events'); // 🔥 pridaj toto
 
 const app = express();
 
-// Middleware to parse JSON request bodies
 app.use(express.json());
-
-// Serve static files (HTML, CSS, JS) from the "public" directory
 app.use(express.static('public'));
 
-// Connect to MongoDB
+// MongoDB pripojenie
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -20,8 +19,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// Mount routes
+// 📦 API routy
 app.use('/people', peopleRoutes);
+app.use('/registrations', registrationRoutes); 
+app.use('/events', eventRoutes); // 🔥 pridaj toto
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
