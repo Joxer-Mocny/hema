@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const peopleRoutes = require('./routes/people');
 const registrationRoutes = require('./routes/registration'); 
-const eventRoutes = require('./routes/events'); // 🔥 pridaj toto
+const eventRoutes = require('./routes/events'); 
 
 const app = express();
 
@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 // 📦 API routy
 app.use('/people', peopleRoutes);
 app.use('/registrations', registrationRoutes); 
-app.use('/events', eventRoutes); // 🔥 pridaj toto
+app.use('/events', eventRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
